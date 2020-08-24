@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace com.haiswork.observer
 {
-    public class Observer
+    public class Observable
     {
-        private readonly Dictionary<Action<Observer>,bool> _dic = new Dictionary<Action<Observer>,bool>();
-        public void Watch(Action<Observer> handlerWatch)
+        private readonly Dictionary<Action<Observable>,bool> _dic = new Dictionary<Action<Observable>,bool>();
+        public void OnWatch(Action<Observable> handlerWatch)
         {
             _dic[handlerWatch] = true;
         }
 
-        public void UnWatch(Action<Observer> handlerWatch)
+        public void UnWatch(Action<Observable> handlerWatch)
         {
             _dic.Remove(handlerWatch);
         }
